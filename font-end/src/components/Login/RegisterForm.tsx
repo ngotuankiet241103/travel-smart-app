@@ -27,7 +27,7 @@ const RegisterForm: React.FC = () => {
           autoFocus
           value={name}
           onChange={(e) => setName(e.target.value)}
-          className="w-full p-2 mt-1 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-150 ease-in-out"
+          className="w-full p-2 mt-1 border border-gray-300 rounded-md focus:outline-none"
           required
         />
       </div>
@@ -44,7 +44,7 @@ const RegisterForm: React.FC = () => {
           name="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="w-full p-2 mt-1 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-150 ease-in-out"
+          className="w-full p-2 mt-1 border border-gray-300 rounded-md focus:outline-none"
           required
         />
       </div>
@@ -61,13 +61,13 @@ const RegisterForm: React.FC = () => {
           name="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className="w-full p-2 mt-1 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-150 ease-in-out"
+          className="w-full p-2 mt-1 border border-gray-300 rounded-md focus:outline-none"
           required
         />
       </div>
       <button
         type="submit"
-        className="w-full px-4 py-2 mt-4 font-bold text-white bg-button rounded-md hover:bg-buttondark focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-150 ease-in-out"
+        className="w-full px-4 py-2 mt-4 font-bold text-white bg-primary rounded-md hover:bg-buttondark focus:outline-none"
       >
         Đăng Ký
       </button>

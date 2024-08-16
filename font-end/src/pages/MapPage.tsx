@@ -12,7 +12,7 @@ const MapPage = () => {
   };
 
   return (
-    <div className="relative flex flex-col md:flex-row overflow-y-auto no-scrollbar   pt-[88px] h-screen">
+    <div className="relative flex flex-col md:flex-row overflow-y-auto no-scrollbar   pt-[91px] h-screen">
       {/* Nút mở menu cho di động */}
       <HiMenuAlt3
         onClick={handleMenuToggle}

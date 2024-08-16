@@ -27,15 +27,15 @@ const MapSelector = ({
         </h2>
         <button
           onClick={() => setShowOptions((showOptions) => !showOptions)}
-          className="mb-4 px-2 py-3  w-full bg-blue-500 text-white rounded"
+          className="mb-4 px-2 py-3  w-full bg-secondary text-white rounded"
         >
           Lịch trình tự tạo
         </button>
         {showOptions && <Handcrafted />}
 
         <hr></hr>
-        <button className="mb-4 px-2 mt-4 py-4 w-full bg-green-500 text-white rounded">
-          lịch trình có sẵn
+        <button className="mb-4 px-2 mt-4 py-3 w-full bg-button text-white rounded">
+          Lịch trình có sẵn
         </button>
 
         <button

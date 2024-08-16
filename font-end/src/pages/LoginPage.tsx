@@ -56,7 +56,7 @@ const LoginPage: React.FC = () => {
         </div>
         <button
           onClick={toggleForm}
-          className="w-full px-4 py-2 font-bold text-white bg-secondary rounded-md hover:bg-primary focus:outline-none focus:ring transition-all"
+          className="w-full px-4 py-2 font-bold text-secondary rounded-md focus:outline-none transition-all"
         >
           {isLogin ? "Đăng Ký" : "Tôi đã có tài khoản"}
         </button>

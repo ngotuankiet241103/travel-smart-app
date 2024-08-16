@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store/store";
@@ -7,7 +7,7 @@ import "leaflet/dist/leaflet.css";
 import "leaflet-geosearch/dist/geosearch.css";
 import L from "leaflet";
 import RouteMap from "./RouteMap";
-import { fetchPlaceDetails, fetchPlaceDetailsWithExtras } from "../../fetchApi/fetchLocationDetails ";
+import IMG4 from "../../assets/places/place4.jpg";
 
 const markerColors = [
   "red",
@@ -34,28 +34,9 @@ const MapComponent: React.FC = () => {
     (state: RootState) => state.destinations.selectedCityCoordinates
   );
 
-  const [placeInfo, setPlaceInfo] = useState<{ [key: string]: any }>({});
-
   const position = coordinates
     ? [coordinates.lat, coordinates.lng]
     : [21.0285, 105.8542];
-
-  useEffect(() => {
-    const fetchInfo = async () => {
-      if (coordinates) {
-        const info = await fetchPlaceDetailsWithExtras(coordinates.lat, coordinates.lng);
-
-        const infoMap = info.reduce((acc, curr) => {
-          acc[curr.name] = curr;
-          return acc;
-        }, {});
-
-        setPlaceInfo(infoMap);
-      }
-    };
-
-    fetchInfo();
-  }, [coordinates]);
 
   return (
     <MapContainer center={position} zoom={12} className="w-full h-full">
@@ -65,8 +46,6 @@ const MapComponent: React.FC = () => {
       />
       {days.map((day, dayIndex) =>
         day.destinations.map((destination, index) => {
-          const placeDetails = placeInfo[destination.name];
-
           return (
             <Marker
               key={destination.name}
@@ -79,19 +58,41 @@ const MapComponent: React.FC = () => {
               <Popup>
                 <div className="space-y-2">
                   <h2 className="font-bold text-lg">{destination.name}</h2>
-                  {placeDetails && (
-                    <>
-                      <p><strong>Type:</strong> {placeDetails.type || "N/A"}</p>
-                      {placeDetails.image && (
-                        <img
-                          src={placeDetails.image}
-                          alt={destination.name}
-                          className="w-full h-32 object-cover rounded-md"
-                        />
-                      )}
-                      <p><strong>Coordinates:</strong> {destination.lat}, {destination.lng}</p>
-                    </>
-                  )}
+
+                  <p>
+                    <strong>Thể loại:</strong> Khám phá
+                  </p>
+
+                  <img
+                    src={IMG4}
+                    alt={destination.name}
+                    className="w-full h-32 object-cover rounded-md"
+                  />
+
+                  <p>
+                    <strong>Tọa độ:</strong> {destination.lat},{" "}
+                    {destination.lng}
+                  </p>
+
+                  <div className="flex items-center">
+                    <strong>Đánh giá:</strong>
+                    <div className="flex items-center ml-2">
+                      {[...Array(5)].map((_, i) => (
+                        <svg
+                          key={i}
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          fill={i < 3 ? "#FFD700" : "#E5E7EB"}
+                          className="w-5 h-5"
+                        >
+                          <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                        </svg>
+                      ))}
+                    </div>
+                    <span className="ml-2 text-gray-600 dark:text-gray-300">
+                      ({3})
+                    </span>
+                  </div>
                 </div>
               </Popup>
             </Marker>

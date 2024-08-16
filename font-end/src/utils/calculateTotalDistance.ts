@@ -32,5 +32,5 @@ export const calculateTravelTime = (
   const hours = Math.floor(totalMinutes / 60);
   const minutes = Math.round(totalMinutes % 60) + 10;
 
-  return hours > 0 ? `${hours}h ${minutes}m` : `${minutes}m`;
+  return hours > 0 ? `${hours} ${minutes}` : `${minutes}`;
 };
