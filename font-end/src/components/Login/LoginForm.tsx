@@ -2,9 +2,10 @@ import React, { useState } from "react";
 
 interface LoginFormProps {
   onLogin: (email: string, password: string) => void;
+  onForgotPassword: () => void; 
 }
 
-const LoginForm: React.FC<LoginFormProps> = ({ onLogin }) => {
+const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onForgotPassword }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -50,6 +51,12 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin }) => {
           required
         />
       </div>
+      <a
+        onClick={() => onForgotPassword()}
+        className="mt-2 text-primary font-semibold text-sm cursor-pointer"
+      >
+        Quên mật khẩu
+      </a>
       <button
         type="submit"
         className="w-full px-4 py-2 mt-4 font-bold text-white bg-primary rounded-md hover:bg-buttondark focus:outline-none transition duration-150 ease-in-out"

@@ -5,9 +5,11 @@ import { useUser } from "../context/UserContext";
 import { users } from "../users";
 import { useNavigate } from "react-router-dom";
 import { IoCloseOutline } from "react-icons/io5";
+import ForgetPassword from "../components/Login/ForgetPassowrd"; 
 
 const LoginPage: React.FC = () => {
   const [isLogin, setIsLogin] = useState(false);
+  const [forget, setForget] = useState(false);
   const { setUser, setOrderPopup } = useUser();
   const navigate = useNavigate();
 
@@ -28,6 +30,10 @@ const LoginPage: React.FC = () => {
     setIsLogin(!isLogin);
   };
 
+  const toggleForgetPassword = () => {
+    setForget(!forget);
+  };
+
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
       <div
@@ -40,29 +46,40 @@ const LoginPage: React.FC = () => {
             onClick={() => setOrderPopup(false)}
           />
         </div>
-        <h2 className="text-2xl font-bold text-center">
-          {isLogin ? "Đăng Nhập" : "Đăng Ký"}
-        </h2>
-        <div className="relative w-full h-80 overflow-hidden">
-          <div className="absolute inset-0 w-full h-full flex transition-transform duration-500 transform"
-               style={{ transform: isLogin ? "translateX(0)" : "translateX(-100%)" }}>
-            <div className="w-full flex-shrink-0">
-              <LoginForm onLogin={handleLogin} />
+        {!forget ? (
+          <>
+            <h2 className="text-2xl font-bold text-center">
+              {isLogin ? "Đăng Nhập" : "Đăng Ký"}
+            </h2>
+            <div className="relative w-full h-80 overflow-hidden">
+              <div
+                className="absolute inset-0 w-full h-full flex transition-transform duration-500 transform"
+                style={{
+                  transform: isLogin ? "translateX(0)" : "translateX(-100%)",
+                }}
+              >
+                <div className="w-full flex-shrink-0">
+                  <LoginForm onLogin={handleLogin} onForgotPassword={toggleForgetPassword} />
+                </div>
+                <div className="w-full flex-shrink-0">
+                  <RegisterForm />
+                </div>
+              </div>
             </div>
-            <div className="w-full flex-shrink-0">
-              <RegisterForm />
-            </div>
-          </div>
-        </div>
-        <button
-          onClick={toggleForm}
-          className="w-full px-4 py-2 font-bold text-secondary rounded-md focus:outline-none transition-all"
-        >
-          {isLogin ? "Đăng Ký" : "Tôi đã có tài khoản"}
-        </button>
+            <button
+              onClick={toggleForm}
+              className="w-full px-4 py-2 font-bold text-secondary rounded-md focus:outline-none transition-all"
+            >
+              {isLogin ? "Đăng Ký" : "Tôi đã có tài khoản"}
+            </button>
+          </>
+        ) : (
+          <ForgetPassword onCancel={toggleForgetPassword} />
+        )}
       </div>
     </div>
   );
 };
 
 export default LoginPage;
+

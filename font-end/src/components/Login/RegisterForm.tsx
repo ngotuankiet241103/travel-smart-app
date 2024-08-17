@@ -7,7 +7,7 @@ const RegisterForm: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Logic xử lý đăng ký
+    
     console.log({ name, email, password });
   };
 

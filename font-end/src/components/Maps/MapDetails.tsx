@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store/store";
+import { calculateTravelTime, formatTravelTime } from "../../utils/calculateTotalDistance";
 
 interface MapDetailsProps {
   date: string;
@@ -20,17 +21,13 @@ const MapDetails: React.FC<MapDetailsProps> = ({ date, onBack }) => {
   if (distances && Array.isArray(day?.destinations)) {
     totalTravelTimeInMinutes = day.destinations.reduce(
       (total, destination, index) => {
-        const travelTime =
-          index > 0 && distances[index] ? distances[index].travelTime : 0;
-        return total + Number(travelTime);
+        const distance = index > 0 ? distances[index]?.distance : 0;
+        const travelTime = index > 0 ? calculateTravelTime(distance, 60) : 0;
+        return total + travelTime;
       },
       0
     );
   }
-
-  console.log(totalTravelTimeInMinutes);
-  const hours = Math.floor(totalTravelTimeInMinutes / 60);
-  const minutes = totalTravelTimeInMinutes % 60;
 
   return (
     <div className="p-4">
@@ -38,15 +35,15 @@ const MapDetails: React.FC<MapDetailsProps> = ({ date, onBack }) => {
       <div className="space-y-2">
         {day?.destinations.map((destination, index) => {
           const distance = index > 0 ? distances?.[index]?.distance : 0;
-          const travelTime = index > 0 ? distances?.[index]?.travelTime : 0;
+          const travelTime = index > 0 ? calculateTravelTime(distance, 60) : 0;
 
           return (
             <div key={index} className="flex flex-col items-start">
               {index > 0 && (
                 <div className="text-secondary text-sm mb-1 dark:text-white">
                   <div>
-                    Số km: {Math.floor(distance)} km | Thời gian: {travelTime}{" "}
-                    phút
+                    Số km: {Math.floor(distance)} km | Thời gian:{" "}
+                    {formatTravelTime(travelTime)}
                   </div>
                 </div>
               )}
@@ -66,7 +63,7 @@ const MapDetails: React.FC<MapDetailsProps> = ({ date, onBack }) => {
         </button>
         <div>
           <strong>
-            Tổng thời gian di chuyển: {hours} giờ {minutes} phút
+            Tổng thời gian di chuyển: {formatTravelTime(totalTravelTimeInMinutes)}
           </strong>
         </div>
       </div>

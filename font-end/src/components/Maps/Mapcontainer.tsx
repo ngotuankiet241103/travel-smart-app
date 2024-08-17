@@ -8,6 +8,7 @@ import "leaflet-geosearch/dist/geosearch.css";
 import L from "leaflet";
 import RouteMap from "./RouteMap";
 import IMG4 from "../../assets/places/place4.jpg";
+import WeatherInfo from "../Weather/WeatherInfo"; 
 
 const markerColors = [
   "red",
@@ -68,11 +69,11 @@ const MapComponent: React.FC = () => {
                     alt={destination.name}
                     className="w-full h-32 object-cover rounded-md"
                   />
-
                   <p>
                     <strong>Tọa độ:</strong> {destination.lat},{" "}
                     {destination.lng}
                   </p>
+                  <WeatherInfo lat={destination.lat} lng={destination.lng} />
 
                   <div className="flex items-center">
                     <strong>Đánh giá:</strong>

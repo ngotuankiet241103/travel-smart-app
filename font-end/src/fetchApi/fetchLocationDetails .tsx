@@ -1,50 +1,16 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import axios from 'axios';
+import axios from "axios";
 
+const API_KEY = "677bb5e89a8c0e450ebca93fc6296070";
+const BASE_URL = "https://api.openweathermap.org/data/2.5/weather";
 
-const API_KEY = 'AIzaSyCTI4Xz-UW_G2Q2RfknhcfdAnTHq5X5XuI';
-const BASE_URL = 'https://api.datacommons.org';
-
-export const fetchPlaceDetails = async (placeId: string) => {
-  try {
-    const response = await axios.get(
-      `${BASE_URL}/v1/place/${placeId}?key=${API_KEY}`
-    );
-    const data = response.data;
-    
-    // Process and return the data as needed
-    return data;
-  } catch (error) {
-    console.error('Error fetching place details:', error);
-    return null;
-  }
+export const fetchWeather = async (lat: number, lon: number) => {
+  const response = await axios.get(BASE_URL, {
+    params: {
+      lat,
+      lon,
+      appid: API_KEY,
+      units: "metric", 
+    },
+  });
+  return response.data;
 };
-
-// Example usage
-fetchPlaceDetails('somePlaceId').then((data) => {
-  console.log(data);
-});
-
-
-export const fetchPlaceDetailsWithExtras = async (placeId: string) => {
-  try {
-    const response = await axios.get(
-      `${BASE_URL}/v1/place/${placeId}?key=${API_KEY}&extraImages=true&extraTypes=true`
-    );
-    const data = response.data;
-    
-    const images = data.images || [];
-    const placeType = data.type || 'Unknown';
-    
-    return { data, images, placeType };
-  } catch (error) {
-    console.error('Error fetching place details with extras:', error);
-    return null;
-  }
-};
-
-// Example usage
-fetchPlaceDetailsWithExtras('somePlaceId').then((data) => {
-  console.log(data);
-});
-

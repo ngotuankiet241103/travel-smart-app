@@ -18,7 +18,7 @@ export const calculateDistance = (
     Math.cos(lat1) * Math.cos(lat2) * Math.sin(dLng / 2) * Math.sin(dLng / 2);
   const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 
-  const distance = R * c; // Distance in kilometers
+  const distance = R * c; 
 
   return distance;
 };
@@ -26,11 +26,16 @@ export const calculateDistance = (
 export const calculateTravelTime = (
   distance: number,
   speedKmPerHour: number
-): string => {
-  const travelTimeInHours = distance / speedKmPerHour; // Time in hours
-  const totalMinutes = travelTimeInHours * 60; // Convert hours to minutes
-  const hours = Math.floor(totalMinutes / 60);
-  const minutes = Math.round(totalMinutes % 60) + 10;
+): number => {
+  const travelTimeInHours = distance / speedKmPerHour;
+  const totalMinutes = travelTimeInHours * 60 + 10; 
 
-  return hours > 0 ? `${hours} ${minutes}` : `${minutes}`;
+  return Math.round(totalMinutes); 
 };
+export const formatTravelTime = (totalMinutes: number): string => {
+  const hours = Math.floor(totalMinutes / 60);
+  const minutes = totalMinutes % 60;
+
+  return hours > 0 ? `${hours} giờ ${minutes} phút` : `${minutes} phút`;
+};
+
