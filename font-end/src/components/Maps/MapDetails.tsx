@@ -1,7 +1,10 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { RootState } from "../../store/store";
-import { calculateTravelTime, formatTravelTime } from "../../utils/calculateTotalDistance";
+import { RootState } from "../../redux/store/store";
+import {
+  calculateTravelTime,
+  formatTravelTime,
+} from "../../utils/calculateTotalDistance";
 
 interface MapDetailsProps {
   date: string;
@@ -63,7 +66,8 @@ const MapDetails: React.FC<MapDetailsProps> = ({ date, onBack }) => {
         </button>
         <div>
           <strong>
-            Tổng thời gian di chuyển: {formatTravelTime(totalTravelTimeInMinutes)}
+            Tổng thời gian di chuyển:{" "}
+            {formatTravelTime(totalTravelTimeInMinutes)}
           </strong>
         </div>
       </div>

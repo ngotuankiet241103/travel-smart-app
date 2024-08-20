@@ -5,6 +5,7 @@ import { FaCaretDown } from "react-icons/fa";
 import { HiMenuAlt3, HiMenuAlt1 } from "react-icons/hi";
 import ResponsiveMenu from "./ResponsiveMenu";
 import { useUser } from "../../context/UserContext";
+import UserDropdown from "../UserDropdown/UserDropdown";
 
 type TypeLink = {
   name: string;
@@ -39,7 +40,7 @@ export const DropdownLinks = [
   },
 ];
 
-const Navbar = () => {
+const Navbar: React.FC = () => {
   const [showMenu, setShowMenu] = useState(false);
   const { user, handleOrderPopup, darkMode, handleThemeSwitch } = useUser();
 
@@ -50,14 +51,14 @@ const Navbar = () => {
   return (
     <>
       <nav className="fixed top-0 right-0 w-full z-50 bg-white dark:text-white backdrop-blur-sm text-black shadow-md dark:bg-gray-800">
-        <div className="bg-gradient-to-r from-primary to-secondary text-white ">
+        {/* <div className="bg-gradient-to-r from-primary to-secondary text-white ">
           <div className="container sm:block hidden">
             <div className="flex items-center justify-between">
               <p className="text-sm">tôi yêu lạc hồng giảm 20%</p>
               <p>1234567809</p>
             </div>
           </div>
-        </div>
+        </div> */}
         <div className="container py-3 sm:py-0">
           <div className="flex justify-between items-center">
             <div className="flex items-center gap-4  font-bold text-2xl">
@@ -87,9 +88,7 @@ const Navbar = () => {
                     Giới thiệu
                   </NavLink>
                 </li>
-                <li
-                  className="group relative cursor-pointer"
-                >
+                <li className="group relative cursor-pointer">
                   <NavLink
                     to="/mappage"
                     className="flex h-[72px] items-center gap-[2px]"
@@ -139,7 +138,7 @@ const Navbar = () => {
                 ></label>
               </div>
               {user ? (
-                <p className="text-sm text-primary">Chào mừng, {user?.name}!</p>
+                <UserDropdown />
               ) : (
                 <button
                   className="bg-gradient-to-r from-primary to-secondary hover:bg-bg-gradient-to-r hover:from-secondary hover:bg-primary transition-all duration-600 text-white px-3 py-2 rounded-full"

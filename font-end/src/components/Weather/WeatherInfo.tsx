@@ -7,24 +7,19 @@ interface WeatherInfoProps {
   lng: number;
 }
 
-// interface WeatherData {
-//   weather: { description: string }[];
-//   main: { temp: number };
-// }
-
 const weatherTranslations: { [key: string]: string } = {
   "clear sky": "Trời quang",
   "few clouds": "Ít mây",
   "scattered clouds": "Mây rải rác",
-  "overcast clouds" : "Mây u ám",
+  "overcast clouds": "Mây u ám",
   "broken clouds": "Mây đứt đoạn",
   "shower rain": "Mưa rào",
   "light rain": "Mưa nhẹ",
-  "light intensity shower rain" : "Mưa rào",
-  "rain": "Mưa",
-  "thunderstorm": "Bão",
-  "snow": "Tuyết",
-  "mist": "Sương mù",
+  "light intensity shower rain": "Mưa rào",
+  rain: "Mưa",
+  thunderstorm: "Bão",
+  snow: "Tuyết",
+  mist: "Sương mù",
 };
 
 const WeatherInfo: React.FC<WeatherInfoProps> = ({ lat, lng }) => {
@@ -54,12 +49,22 @@ const WeatherInfo: React.FC<WeatherInfoProps> = ({ lat, lng }) => {
   return (
     weather && (
       <div>
-        <p>
-          <strong>Thời tiết:</strong> {translateWeatherDescription(weather.weather[0].description)}
-        </p>
-        <p>
-          <strong>Nhiệt độ:</strong> {Math.floor(weather.main.temp)}°C
-        </p>
+        <div>
+          <strong>Thời tiết:</strong> {" "}
+          {translateWeatherDescription(weather.weather[0].description)}
+        </div>
+        <div className="flex items-center">
+          <div>
+            <strong>Nhiệt độ:</strong> {Math.floor(weather.main.temp)}°C
+          </div>
+          {weather.weather[0].icon && (
+            <img
+              src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
+              alt={weather.weather[0].description}
+              className="w-10 h-10"
+            />
+          )}
+        </div>
       </div>
     )
   );

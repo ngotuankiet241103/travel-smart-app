@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Handcrafted from "./Handcrafted";
-import { RootState } from "../../store/store";
+import { RootState } from "../../redux/store/store";
 import { useSelector } from "react-redux";
 
 const MapSelector = ({
@@ -11,9 +11,7 @@ const MapSelector = ({
   handleMenuToggle: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
   const [showOptions, setShowOptions] = useState(false);
-  const destext = useSelector(
-    (state: RootState) => state.destinations.destext
-  );
+  const destext = useSelector((state: RootState) => state.destinations.destext);
 
   return (
     <>
@@ -23,7 +21,8 @@ const MapSelector = ({
         } md:block absolute md:static w-full md:w-1/3 p-4 dark:bg-slate-800 dark:text-white bg-gray-100 overflow-y-auto no-scrollbar  z-40 md:z-auto`}
       >
         <h2 className="text-xl font-semibold mb-4">
-          Lựa chọn của bạn cho chuyến đi: <label className="text-primary">{destext}</label> 
+          Lựa chọn của bạn cho chuyến đi:{" "}
+          <label className="text-primary">{destext}</label>
         </h2>
         <button
           onClick={() => setShowOptions((showOptions) => !showOptions)}

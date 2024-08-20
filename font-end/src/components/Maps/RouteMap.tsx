@@ -19,12 +19,14 @@ const customIcon = L.icon({
 });
 
 import { useSelector } from "react-redux";
-import { RootState } from "../../store/store";
+import { RootState } from "../../redux/store/store";
 
 const RouteMap: React.FC<RouteMapProps> = ({ days }) => {
   const map = useMap();
   const [currentPosition, setCurrentPosition] = useState<L.LatLng | null>(null);
-  const selectedDay = useSelector((state: RootState) => state.destinations.selectedDay);
+  const selectedDay = useSelector(
+    (state: RootState) => state.destinations.selectedDay
+  );
 
   useEffect(() => {
     if (navigator.geolocation) {
@@ -46,7 +48,7 @@ const RouteMap: React.FC<RouteMapProps> = ({ days }) => {
 
   useEffect(() => {
     if (currentPosition && selectedDay) {
-      const day = days.find(day => day.date === selectedDay);
+      const day = days.find((day) => day.date === selectedDay);
       if (!day) return;
 
       const waypoints = [
@@ -91,4 +93,4 @@ const RouteMap: React.FC<RouteMapProps> = ({ days }) => {
   return null;
 };
 
-export default RouteMap
+export default RouteMap;

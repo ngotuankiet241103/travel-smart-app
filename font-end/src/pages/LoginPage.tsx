@@ -5,7 +5,7 @@ import { useUser } from "../context/UserContext";
 import { users } from "../users";
 import { useNavigate } from "react-router-dom";
 import { IoCloseOutline } from "react-icons/io5";
-import ForgetPassword from "../components/Login/ForgetPassowrd"; 
+import ForgetPassword from "../components/Login/ForgetPassowrd";
 
 const LoginPage: React.FC = () => {
   const [isLogin, setIsLogin] = useState(false);
@@ -19,6 +19,7 @@ const LoginPage: React.FC = () => {
     );
     if (foundUser) {
       setUser(foundUser);
+      localStorage.setItem("user", JSON.stringify(foundUser)); 
       setOrderPopup(false);
       navigate("/");
     } else {
@@ -59,7 +60,10 @@ const LoginPage: React.FC = () => {
                 }}
               >
                 <div className="w-full flex-shrink-0">
-                  <LoginForm onLogin={handleLogin} onForgotPassword={toggleForgetPassword} />
+                  <LoginForm
+                    onLogin={handleLogin}
+                    onForgotPassword={toggleForgetPassword}
+                  />
                 </div>
                 <div className="w-full flex-shrink-0">
                   <RegisterForm />
@@ -82,4 +86,3 @@ const LoginPage: React.FC = () => {
 };
 
 export default LoginPage;
-

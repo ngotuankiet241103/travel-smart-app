@@ -5,7 +5,7 @@ import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import DestinationItem from "./DestinationItem";
 import MapDetails from "./MapDetails";
 import { Destination, Day } from "../../redux/type";
-import { RootState } from "../../store/store";
+import { RootState } from "../../redux/store/store";
 import {
   addDestination,
   removeDestination,
@@ -127,7 +127,7 @@ const Handcrafted: React.FC = () => {
                   onClick={() => handleGoToMap(day.date)}
                   className="bg-gradient-to-r from-primary to-secondary hover:bg-bg-gradient-to-r w-32 hover:from-secondary hover:bg-primary transition-all duration-600 text-white px-3 py-2 rounded-full"
                 >
-                  Go To Map
+                  Tiến hành
                 </button>
               </div>
             </>

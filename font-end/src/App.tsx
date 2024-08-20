@@ -5,6 +5,7 @@ import { lazy, Suspense, useEffect } from "react";
 import { UserProvider } from "./context/UserContext";
 import "./index.css";
 import SimpleLayout from "./pages/SimpleLayout";
+import LoadingTriangle from "./components/Loading/LoadingTriangle";
 
 const Home = lazy(() => import("./pages/Home"));
 const Layout = lazy(() => import("./pages/Layout"));
@@ -30,7 +31,7 @@ function App() {
 
   return (
     <>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<LoadingTriangle />}>
         <UserProvider>
           <Routes>
             <Route path="/" element={<Layout />}>

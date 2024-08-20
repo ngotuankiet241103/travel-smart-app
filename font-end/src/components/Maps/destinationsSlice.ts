@@ -23,6 +23,7 @@ const destinationsSlice = createSlice({
   name: "destinations",
   initialState,
   reducers: {
+    resetDestinations: () => initialState,
     setDays: (state, action: PayloadAction<Day[]>) => {
       state.days = action.payload;
     },
@@ -164,6 +165,7 @@ const destinationsSlice = createSlice({
 
 
 export const {
+  resetDestinations,
   setDays,
   addDestination,
   removeDestination,

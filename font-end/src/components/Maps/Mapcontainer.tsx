@@ -1,14 +1,14 @@
 import React from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { useSelector } from "react-redux";
-import { RootState } from "../../store/store";
+import { RootState } from "../../redux/store/store";
 import osmProvider from "../../osm-provider";
 import "leaflet/dist/leaflet.css";
 import "leaflet-geosearch/dist/geosearch.css";
 import L from "leaflet";
 import RouteMap from "./RouteMap";
 import IMG4 from "../../assets/places/place4.jpg";
-import WeatherInfo from "../Weather/WeatherInfo"; 
+import WeatherInfo from "../Weather/WeatherInfo";
 
 const markerColors = [
   "red",
@@ -90,9 +90,7 @@ const MapComponent: React.FC = () => {
                         </svg>
                       ))}
                     </div>
-                    <span className="ml-2 text-gray-600 dark:text-gray-300">
-                      ({3})
-                    </span>
+                    <span className="ml-2 text-gray-600 ">({3})</span>
                   </div>
                 </div>
               </Popup>
