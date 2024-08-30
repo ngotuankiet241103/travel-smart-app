@@ -27,6 +27,23 @@ const destinationsSlice = createSlice({
     setDays: (state, action: PayloadAction<Day[]>) => {
       state.days = action.payload;
     },
+    addDay: (state) => {
+      const lastDay = state.days[state.days.length - 1]; // lấy vị trí cuối trang mảng tức là ngày cuối tron mảng
+      const newDate = new Date(lastDay?.date || new Date());
+      newDate.setDate(newDate.getDate() + 1); // cộng ngày cuối trang mảng thêm 1 ngày
+
+      const newDay: Day = {
+        date: newDate.toISOString().split("T")[0], // phân tách chuỗi kí tự T để lấy yyyy-mm-dd
+        destinations: [],
+      };
+
+      state.days.push(newDay);
+    },
+    removeDay: (state, action: PayloadAction<string>) => {
+      const date = action.payload;
+      state.days = state.days.filter(day => day.date !== date);
+      delete state.distances[date]; // Optionally remove distances for the day if needed
+    },
     addDestination: (state, action: PayloadAction<AddDestinationPayload>) => {
       const { date, destination } = action.payload;
       const day = state.days.find((day) => day.date === date);
@@ -167,6 +184,8 @@ const destinationsSlice = createSlice({
 export const {
   resetDestinations,
   setDays,
+  addDay,
+  removeDay,
   addDestination,
   removeDestination,
   setDestinationText,

@@ -2,18 +2,25 @@ import { configureStore } from "@reduxjs/toolkit";
 import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import destinationsSlice from "../../components/Maps/destinationsSlice";
+import { blogsReducer } from "../../components/Blogs/BlogsSlice";
 
-const persistConfig = {
-  key: "root",
+// Cấu hình persist cho destinations slice
+const destinationsPersistConfig = {
+  key: "destinations",
   storage,
 };
 
-const persistedReducer = persistReducer(persistConfig, destinationsSlice);
+const persistedDestinationsReducer = persistReducer(
+  destinationsPersistConfig,
+  destinationsSlice
+);
 
 export const store = configureStore({
   reducer: {
-    destinations: persistedReducer,
+    destinations: persistedDestinationsReducer,
+    blogs: blogsReducer,
   },
 });
 
+export type RootState = ReturnType<typeof store.getState>;
 export const persistor = persistStore(store);

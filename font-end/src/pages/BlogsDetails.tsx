@@ -7,7 +7,7 @@ const BlogsDetails = () => {
   const { image, date, title, description, author } = location.state;
 
   return (
-    <div className=" pt-20">
+    <div className="pt-20 dark:bg-gray-900 dark:text-white">
       <div className="h-[300px] overflow-hidden">
         <img
           src={image}
@@ -16,7 +16,7 @@ const BlogsDetails = () => {
         />
       </div>
       <div className="container ">
-        <p className="text-slate-600 text-sm py-3">
+        <p className="text-slate-600 dark:text-dark text-sm py-3">
           {" "}
           written by {author} on {date}
         </p>

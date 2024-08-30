@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store/store";
@@ -13,7 +14,7 @@ interface MapDetailsProps {
 
 const MapDetails: React.FC<MapDetailsProps> = ({ date, onBack }) => {
   const day = useSelector((state: RootState) =>
-    state.destinations.days.find((d) => d.date === date)
+    state.destinations.days.find((d :any) => d.date === date)
   );
   const distances = useSelector(
     (state: RootState) => state.destinations.distances[date]
@@ -23,7 +24,7 @@ const MapDetails: React.FC<MapDetailsProps> = ({ date, onBack }) => {
 
   if (distances && Array.isArray(day?.destinations)) {
     totalTravelTimeInMinutes = day.destinations.reduce(
-      (total, destination, index) => {
+      (total :number, destination :any, index :number) => {
         const distance = index > 0 ? distances[index]?.distance : 0;
         const travelTime = index > 0 ? calculateTravelTime(distance, 60) : 0;
         return total + travelTime;
@@ -36,7 +37,7 @@ const MapDetails: React.FC<MapDetailsProps> = ({ date, onBack }) => {
     <div className="p-4">
       <h3 className="text-lg font-bold mb-3">Chi tiết chuyến đi - {date}</h3>
       <div className="space-y-2">
-        {day?.destinations.map((destination, index) => {
+        {day?.destinations.map((destination :any, index :number) => {
           const distance = index > 0 ? distances?.[index]?.distance : 0;
           const travelTime = index > 0 ? calculateTravelTime(distance, 60) : 0;
 
@@ -45,7 +46,7 @@ const MapDetails: React.FC<MapDetailsProps> = ({ date, onBack }) => {
               {index > 0 && (
                 <div className="text-secondary text-sm mb-1 dark:text-white">
                   <div>
-                    Số km: {Math.floor(distance)} km | Thời gian:{" "}
+                    Số km: {Math.round(distance)} km | Thời gian:{" "}
                     {formatTravelTime(travelTime)}
                   </div>
                 </div>

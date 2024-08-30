@@ -3,6 +3,7 @@ import Logo from "../../assets/logo.png";
 import { NavLink, Link } from "react-router-dom";
 import { FaCaretDown } from "react-icons/fa";
 import { HiMenuAlt3, HiMenuAlt1 } from "react-icons/hi";
+import { LuSunMoon, LuMoon } from "react-icons/lu";
 import ResponsiveMenu from "./ResponsiveMenu";
 import { useUser } from "../../context/UserContext";
 import UserDropdown from "../UserDropdown/UserDropdown";
@@ -121,21 +122,20 @@ const Navbar: React.FC = () => {
             </div>
             <div className="flex items-center gap-4">
               <div
-                className="relative inline-block w-12 mr-2 align-middle select-none transition duration-200 ease-in"
+                className="relative inline-block align-middle select-none transition duration-200 ease-in"
                 title="toggleMode"
               >
-                <input
-                  type="checkbox"
-                  name="toggle"
-                  id="toggle"
-                  checked={darkMode}
-                  onChange={handleThemeSwitch}
-                  className="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer"
-                />
-                <label
-                  htmlFor="toggle"
-                  className="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"
-                ></label>
+                {darkMode ? (
+                  <LuSunMoon 
+                    className="w-6 h-6 text-dark cursor-pointer"
+                    onClick={handleThemeSwitch}
+                  />
+                ) : (
+                  <LuMoon 
+                    className="w-6 h-6 text-gray-700 cursor-pointer"
+                    onClick={handleThemeSwitch}
+                  />
+                )}
               </div>
               {user ? (
                 <UserDropdown />
@@ -146,7 +146,7 @@ const Navbar: React.FC = () => {
                     handleOrderPopup();
                   }}
                 >
-                  Book Now
+                  Lên lịch trình
                 </button>
               )}
 

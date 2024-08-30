@@ -77,3 +77,42 @@ body::-webkit-scrollbar-thumb {
   width: 3rem;
   transition: background-color 0.2s ease-in;
 }
+
+.ql-container.ql-snow {
+  min-height: inherit;
+}
+
+/* styles.css or equivalent file */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.pagination a,
+.pagination button {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  background-color: #fff;
+  color: #333;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.pagination a:hover,
+.pagination button:hover {
+  background-color: #f0f0f0;
+  border-color: #ccc;
+}
+
+.pagination .disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.pagination .previous,
+.pagination .next {
+  font-weight: bold;
+}

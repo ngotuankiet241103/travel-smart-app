@@ -11,6 +11,8 @@ import {
   removeDestination,
   setSelectedDay,
   reorderDestinations,
+  addDay,
+  removeDay,
 } from "./destinationsSlice";
 import SearchInput from "../SearchInput/SearchInput";
 
@@ -74,7 +76,18 @@ const Handcrafted: React.FC = () => {
             <MapDetails date={day.date} onBack={handleBackToList} />
           ) : (
             <>
-              <h3 className="text-lg font-bold">{day.date}</h3>
+              <div className="flex justify-between items-center">
+                <h3 className="text-lg font-bold">{new Date(day.date).toLocaleDateString("vi-VN")}</h3>
+                <div>
+                  <button
+                    onClick={() => dispatch(removeDay(day.date))}
+                    className="text-red-500 font-semibold"
+                  >
+                    X
+                  </button>
+                </div>
+              </div>
+
               <DragDropContext onDragEnd={(result) => onDragEnd(result, day)}>
                 <Droppable droppableId={day.date}>
                   {(provided) => (
@@ -134,6 +147,14 @@ const Handcrafted: React.FC = () => {
           )}
         </div>
       ))}
+      <div className="flex justify-center items-center mt-4">
+        <button
+          onClick={() => dispatch(addDay())}
+          className="bg-primary text-white w-10 h-10 mb-3 text-lg rounded-full flex items-center justify-center"
+        >
+          +
+        </button>
+      </div>
     </div>
   );
 };

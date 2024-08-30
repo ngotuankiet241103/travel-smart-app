@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useEffect, useState } from "react";
-import { fetchWeather } from "../../fetchApi/fetchLocationDetails ";
+import { fetchWeather } from "../../fetchApi/fetchWeatherApi";
+import WeatherChart from "./WeatherChart";
 
 interface WeatherInfoProps {
   lat: number;
@@ -20,6 +21,7 @@ const weatherTranslations: { [key: string]: string } = {
   thunderstorm: "Bão",
   snow: "Tuyết",
   mist: "Sương mù",
+  "moderate rain": "Mưa vừa",
 };
 
 const WeatherInfo: React.FC<WeatherInfoProps> = ({ lat, lng }) => {
@@ -50,7 +52,7 @@ const WeatherInfo: React.FC<WeatherInfoProps> = ({ lat, lng }) => {
     weather && (
       <div>
         <div>
-          <strong>Thời tiết:</strong> {" "}
+          <strong>Thời tiết:</strong>{" "}
           {translateWeatherDescription(weather.weather[0].description)}
         </div>
         <div className="flex items-center">
@@ -65,6 +67,7 @@ const WeatherInfo: React.FC<WeatherInfoProps> = ({ lat, lng }) => {
             />
           )}
         </div>
+        <WeatherChart lat={lat} lng={lng} />
       </div>
     )
   );

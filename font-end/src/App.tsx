@@ -17,6 +17,7 @@ const NoPage = lazy(() => import("./pages/NoPage"));
 const MapPage = lazy(() => import("./pages/MapPage"));
 const HistoryPage = lazy(() => import("./pages/HistoryPage"));
 const RecentlyPage = lazy(() => import("./pages/RecentlyPage"));
+const WriteBlog = lazy(() => import("./components/Blogs/WriteBlog"));
 
 function App() {
   useEffect(() => {
@@ -42,6 +43,7 @@ function App() {
               <Route path="about" element={<About />} />
               <Route path="history-travel" element={<HistoryPage />} />
               <Route path="recently-travel" element={<RecentlyPage />} />
+              <Route path="WriteBlog" element={<WriteBlog />} />
               <Route path="*" element={<NoPage />} />
             </Route>
             <Route path="/" element={<SimpleLayout />}>

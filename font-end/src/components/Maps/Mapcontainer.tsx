@@ -40,7 +40,7 @@ const MapComponent: React.FC = () => {
     : [21.0285, 105.8542];
 
   return (
-    <MapContainer center={position} zoom={12} className="w-full h-full">
+    <MapContainer center={position} zoom={11} className="w-full h-full">
       <TileLayer
         url={osmProvider.maptiler.url}
         attribution={osmProvider.maptiler.attribution}
