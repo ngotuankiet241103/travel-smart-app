@@ -11,18 +11,22 @@ import { Link } from "react-router-dom";
 
 const FooterLinks = [
   {
+    id: 1,
     title: "Home",
     link: "/",
   },
   {
+    id: 2,
     title: "About",
     link: "/about",
   },
   {
+    id: 3,
     title: "Best Places",
     link: "/best-places",
   },
   {
+    id: 4,
     title: "Blogs",
     link: "/blogs",
   },
@@ -84,7 +88,10 @@ const Footer = () => {
                   </h1>
                   <ul className="flex flex-col gap-3">
                     {FooterLinks.map((link) => (
-                      <li className="cursor-pointer hover:translate-x-1 duration-300 hover:!text-primary space-x-1 text-gray-700 dark:text-gray-200">
+                      <li
+                        key={link.id}
+                        className="cursor-pointer hover:translate-x-1 duration-300 hover:!text-primary space-x-1 text-gray-700 dark:text-gray-200"
+                      >
                         <Link
                           to={link.link}
                           onClick={() => window.scrollTo(0, 0)}
@@ -104,7 +111,10 @@ const Footer = () => {
                   </h1>
                   <ul className="flex flex-col gap-3">
                     {FooterLinks.map((link) => (
-                      <li className="cursor-pointer hover:translate-x-1 duration-300 hover:!text-primary space-x-1 text-gray-700 dark:text-gray-200">
+                      <li
+                        key={link.id}
+                        className="cursor-pointer hover:translate-x-1 duration-300 hover:!text-primary space-x-1 text-gray-700 dark:text-gray-200"
+                      >
                         <Link
                           to={link.link}
                           onClick={() => window.scrollTo(0, 0)}
@@ -124,7 +134,10 @@ const Footer = () => {
                   </h1>
                   <ul className="flex flex-col gap-3">
                     {FooterLinks.map((link) => (
-                      <li className="cursor-pointer hover:translate-x-1 duration-300 hover:!text-primary space-x-1 text-gray-700 dark:text-gray-200">
+                      <li
+                        key={link.id}
+                        className="cursor-pointer hover:translate-x-1 duration-300 hover:!text-primary space-x-1 text-gray-700 dark:text-gray-200"
+                      >
                         <Link
                           to={link.link}
                           onClick={() => window.scrollTo(0, 0)}

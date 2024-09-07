@@ -77,11 +77,13 @@ const Handcrafted: React.FC = () => {
           ) : (
             <>
               <div className="flex justify-between items-center">
-                <h3 className="text-lg font-bold">{new Date(day.date).toLocaleDateString("vi-VN")}</h3>
+                <h3 className="text-lg font-bold">
+                  {new Date(day.date).toLocaleDateString("vi-VN")}
+                </h3>
                 <div>
                   <button
                     onClick={() => dispatch(removeDay(day.date))}
-                    className="text-red-500 font-semibold"
+                    className="text-primary font-semibold"
                   >
                     X
                   </button>
@@ -147,14 +149,16 @@ const Handcrafted: React.FC = () => {
           )}
         </div>
       ))}
-      <div className="flex justify-center items-center mt-4">
-        <button
-          onClick={() => dispatch(addDay())}
-          className="bg-primary text-white w-10 h-10 mb-3 text-lg rounded-full flex items-center justify-center"
-        >
-          +
-        </button>
-      </div>
+      {days && (
+        <div className="flex justify-center items-center mt-4">
+          <button
+            onClick={() => dispatch(addDay())}
+            className="bg-primary text-white w-10 h-10 mb-3 text-lg rounded-full flex items-center justify-center"
+          >
+            +
+          </button>
+        </div>
+      )}
     </div>
   );
 };

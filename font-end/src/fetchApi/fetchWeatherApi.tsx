@@ -9,7 +9,7 @@ export const fetchWeather = async (lat: number, lon: number) => {
       lat,
       lon,
       appid: API_KEY,
-      units: "metric", 
+      units: "metric",
     },
   });
   return response.data;
@@ -17,17 +17,15 @@ export const fetchWeather = async (lat: number, lon: number) => {
 
 const FORECAST_URL = "https://api.openweathermap.org/data/2.5/forecast";
 
-export const fetchWeatherForecast = async (lat: number, lon: number) => {
+export const fetchDailyWeather = async (lat: number, lon: number) => {
   const response = await axios.get(FORECAST_URL, {
     params: {
       lat,
       lon,
+      exclude: "minutely,hourly",
       appid: API_KEY,
       units: "metric",
     },
   });
   return response.data;
 };
-
-
-

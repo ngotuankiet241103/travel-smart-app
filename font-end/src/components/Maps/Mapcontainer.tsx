@@ -8,7 +8,7 @@ import "leaflet-geosearch/dist/geosearch.css";
 import L from "leaflet";
 import RouteMap from "./RouteMap";
 import IMG4 from "../../assets/places/place4.jpg";
-import WeatherInfo from "../Weather/WeatherInfo";
+import WeatherSmartCard from "../Weather/WeatherChart";
 
 const markerColors = [
   "red",
@@ -35,7 +35,7 @@ const MapComponent: React.FC = () => {
     (state: RootState) => state.destinations.selectedCityCoordinates
   );
 
-  const position = coordinates
+  const position: L.LatLngExpression | undefined = coordinates
     ? [coordinates.lat, coordinates.lng]
     : [21.0285, 105.8542];
 
@@ -73,7 +73,7 @@ const MapComponent: React.FC = () => {
                     <strong>Tọa độ:</strong> {destination.lat},{" "}
                     {destination.lng}
                   </p>
-                  <WeatherInfo lat={destination.lat} lng={destination.lng} />
+                  <WeatherSmartCard lat={destination.lat} lng={destination.lng} />
 
                   <div className="flex items-center">
                     <strong>Đánh giá:</strong>

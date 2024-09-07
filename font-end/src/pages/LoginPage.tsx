@@ -36,7 +36,7 @@ const LoginPage: React.FC = () => {
   };
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+    <div className="fixed inset-0 flex items-center justify-center bg-slate-300 bg-opacity-20 z-50">
       <div
         className="relative w-full max-w-md p-6 space-y-8 bg-white shadow-lg rounded-lg"
         onClick={(e) => e.stopPropagation()}

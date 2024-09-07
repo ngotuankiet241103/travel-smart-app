@@ -52,14 +52,6 @@ const Navbar: React.FC = () => {
   return (
     <>
       <nav className="fixed top-0 right-0 w-full z-50 bg-white dark:text-white backdrop-blur-sm text-black shadow-md dark:bg-gray-800">
-        {/* <div className="bg-gradient-to-r from-primary to-secondary text-white ">
-          <div className="container sm:block hidden">
-            <div className="flex items-center justify-between">
-              <p className="text-sm">tôi yêu lạc hồng giảm 20%</p>
-              <p>1234567809</p>
-            </div>
-          </div>
-        </div> */}
         <div className="container py-3 sm:py-0">
           <div className="flex justify-between items-center">
             <div className="flex items-center gap-4  font-bold text-2xl">
@@ -70,30 +62,53 @@ const Navbar: React.FC = () => {
             <div className="hidden md:block">
               <ul className="flex items-center gap-6 ">
                 <li className="py-4">
-                  <NavLink to="/" activeClassName="active">
+                  <NavLink
+                    to="/"
+                    className={(navData) =>
+                      navData.isActive ? "active" : "none"
+                    }
+                  >
                     Trang chủ
                   </NavLink>
                 </li>
                 <li className="py-4">
-                  <NavLink to="/blogs" activeClassName="active">
+                  <NavLink
+                    to="/blogs"
+                    className={(navData) =>
+                      navData.isActive ? "active" : "none"
+                    }
+                  >
                     Bài viết
                   </NavLink>
                 </li>
                 <li className="py-4">
-                  <NavLink to="/best-places" activeClassName="active">
+                  <NavLink
+                    to="/best-places"
+                    className={(navData) =>
+                      navData.isActive ? "active" : "none"
+                    }
+                  >
                     Địa điểm HOT
                   </NavLink>
                 </li>
                 <li className="py-4">
-                  <NavLink to="/about" activeClassName="active">
+                  <NavLink
+                    to="/about"
+                    className={(navData) =>
+                      navData.isActive ? "active" : "none"
+                    }
+                  >
                     Giới thiệu
                   </NavLink>
                 </li>
                 <li className="group relative cursor-pointer">
                   <NavLink
                     to="/mappage"
-                    className="flex h-[72px] items-center gap-[2px]"
-                    activeClassName="active"
+                    className={(navData) =>
+                      `flex h-[72px] items-center gap-[2px] ${
+                        navData.isActive ? "active" : "none"
+                      }`
+                    }
                   >
                     Lịch trình{" "}
                     <span>
@@ -106,9 +121,10 @@ const Navbar: React.FC = () => {
                         <li key={data.name}>
                           <NavLink
                             to={data.link}
-                            activeClassName="active"
-                            className={
-                              "inline-block w-full rounded-md p-2 hover:bg-primary/20"
+                            className={(navData) =>
+                              `inline-block w-full rounded-md p-2 hover:bg-primary/20 ${
+                                navData.isActive ? "active" : "none"
+                              }`
                             }
                           >
                             {data.name}
@@ -126,12 +142,12 @@ const Navbar: React.FC = () => {
                 title="toggleMode"
               >
                 {darkMode ? (
-                  <LuSunMoon 
+                  <LuSunMoon
                     className="w-6 h-6 text-dark cursor-pointer"
                     onClick={handleThemeSwitch}
                   />
                 ) : (
-                  <LuMoon 
+                  <LuMoon
                     className="w-6 h-6 text-gray-700 cursor-pointer"
                     onClick={handleThemeSwitch}
                   />

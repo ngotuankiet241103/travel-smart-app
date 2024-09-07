@@ -116,3 +116,16 @@ body::-webkit-scrollbar-thumb {
 .pagination .next {
   font-weight: bold;
 }
+
+@keyframes fly {
+  0% {
+    left: -20px;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+.animate-fly {
+  animation: fly 3s linear infinite;
+}
