@@ -51,7 +51,7 @@ api:
 notification:
   email:
     brevo-url: https://api.brevo.com
-    brevo-apiKey: ${SENDINBLUE_API_KEY}
+   
 ## Additional configuration if needed
 #logging:
 #  level:
