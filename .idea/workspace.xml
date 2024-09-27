@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="cee9c357-75b3-4f89-bd17-a9c6376a282a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/back-end/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/identity-service/src/main/java/com/identity_service/event/dto/EmailRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/identity-service/src/main/java/com/identity_service/event/dto/ProfileRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/identity-service/src/main/java/com/identity_service/identity/authentication/TokenDecoder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/identity-service/src/main/java/com/identity_service/identity/config/CustomSerializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/identity-service/src/main/java/com/identity_service/identity/config/KafkaConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/identity-service/src/main/java/com/identity_service/identity/config/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/identity-service/src/main/java/com/identity_service/identity/config/WebSecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/identity-service/src/main/java/com/identity_service/identity/constaint/ConfirmTokenType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/identity-service/src/main/java/com/identity_service/identity/controller/AuthenticationController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/identity-service/src/main/java/com/identity_service/identity/dto/request/AuthenticationRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/identity-service/src/main/java/com/identity_service/identity/dto/request/IntrospectRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/identity-service/src/main/java/com/identity_service/identity/dto/request/RegisterRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/identity-service/src/main/java/com/identity_service/identity/dto/response/ApiResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/identity-service/src/main/java/com/identity_service/identity/dto/response/IntrospectResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/identity-service/src/main/java/com/identity_service/identity/dto/response/TokenResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/identity-service/src/main/java/com/identity_service/identity/entity/ConfirmTokenEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/identity-service/src/main/java/com/identity_service/identity/entity/PermissionEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/identity-service/src/main/java/com/identity_service/identity/entity/RoleEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/identity-service/src/main/java/com/identity_service/identity/entity/TokenEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/identity-service/src/main/java/com/identity_service/identity/entity/UserEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/identity-service/src/main/java/com/identity_service/identity/exception/CustomRuntimeException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/identity-service/src/main/java/com/identity_service/identity/exception/ErrorCode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/identity-service/src/main/java/com/identity_service/identity/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/identity-service/src/main/java/com/identity_service/identity/mapper/UserMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/identity-service/src/main/java/com/identity_service/identity/repository/TokenRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/identity-service/src/main/java/com/identity_service/identity/repository/UserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/identity-service/src/main/java/com/identity_service/identity/service/AuthenticationService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/identity-service/src/main/java/com/identity_service/identity/service/TokenProviderService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/identity-service/src/main/java/com/identity_service/identity/service/TokenService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/identity-service/src/main/java/com/identity_service/identity/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/identity-service/src/main/java/com/identity_service/identity/service/impl/AuthenticationServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/identity-service/src/main/java/com/identity_service/identity/service/impl/TokenProviderServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/identity-service/src/main/java/com/identity_service/identity/service/impl/TokenServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/identity-service/src/main/java/com/identity_service/identity/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/profile-service/src/main/java/com/travelsmart/event/dto/EmailRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/profile-service/src/main/java/com/travelsmart/event/dto/ProfileRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/profile-service/src/main/java/com/travelsmart/profile_service/config/CustomDeserializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/profile-service/src/main/java/com/travelsmart/profile_service/config/CustomSerializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/profile-service/src/main/java/com/travelsmart/profile_service/config/KafkaTemplateConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/profile-service/src/main/java/com/travelsmart/profile_service/controller/ProfileController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/profile-service/src/main/java/com/travelsmart/profile_service/dto/request/ProfileUpdateRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/profile-service/src/main/java/com/travelsmart/profile_service/dto/response/ApiResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/profile-service/src/main/java/com/travelsmart/profile_service/dto/response/ProfileResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/profile-service/src/main/java/com/travelsmart/profile_service/entity/ProfileEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/profile-service/src/main/java/com/travelsmart/profile_service/exception/CustomErrorHandlingDeserializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/profile-service/src/main/java/com/travelsmart/profile_service/exception/CustomProfileDeserializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/profile-service/src/main/java/com/travelsmart/profile_service/exception/CustomRuntimeException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/profile-service/src/main/java/com/travelsmart/profile_service/exception/ErrorCode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/profile-service/src/main/java/com/travelsmart/profile_service/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/profile-service/src/main/java/com/travelsmart/profile_service/mapper/ProfileMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/profile-service/src/main/java/com/travelsmart/profile_service/repository/ProfileRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/profile-service/src/main/java/com/travelsmart/profile_service/service/ProfileService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/profile-service/src/main/java/com/travelsmart/profile_service/service/impl/ProfileServiceImpl.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 5
+}]]></component>
+  <component name="ProjectId" id="2l0MjrsED8yOp63uxsN6r499GaK" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "mobile",
+    "last_opened_file_path": "D:/projects/travel-smart-app/back-end"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="cee9c357-75b3-4f89-bd17-a9c6376a282a" name="Changes" comment="" />
+      <created>1724312679629</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1724312679629</updated>
+    </task>
+    <servers />
+  </component>
+</project>
